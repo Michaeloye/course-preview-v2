@@ -1,0 +1,3 @@
+<template>
+	<svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 4.233 4.233"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width=".365" d="M3.307 3.836H1.19a.528.528 0 0 1-.53-.529V.927c0-.293.237-.53.53-.53h2.117c.294 0 .53.237.53.53v2.38c0 .293-.236.53-.53.53z" paint-order="markers fill stroke"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width=".365" d="M2.925 1.657a.539.539 0 1 1-1.077 0 .539.539 0 0 1 1.077 0zM1.643 3.116c0-.243.196-.439.439-.439h.61c.242 0 .438.196.438.439M.398 1.111H.98M.398 3.035H.98m-.582-.88H.98" paint-order="markers fill stroke"/></svg>
+</template>
