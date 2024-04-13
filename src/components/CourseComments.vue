@@ -6,11 +6,13 @@ import ReplyIcon from '~/components/icons/ReplyIcon.vue';
 <template>
   <div>
     <h4 class="font-semibold">Comments (154)</h4>
-    <div class="relative mt-3">
+    <div class="relative mt-3 flex gap-2">
       <ReplyIcon class="w-6 h-6 absolute left-4 top-[50%] -translate-y-[50%]" />
       <input
-        class="w-full border border-[#e9eaf0] p-2 pl-10 rounded-md focus:border-primary-purple focus:outline-primary-purple"
+        class="w-[80%] border border-[#e9eaf0] p-2 pl-10 rounded-md focus:border-primary-purple focus:outline-primary-purple"
         placeholder="Write your reply" />
+
+      <button class="py-2 px-3 bg-primary-purple text-white rounded-md text-sm">Post Reply</button>
     </div>
     <div class="mt-5">
       <div class="relative ">
