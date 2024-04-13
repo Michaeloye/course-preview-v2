@@ -4,6 +4,9 @@ import CourseDescription from '~/components/CourseDescription.vue';
 import CourseLectureNotes from '~/components/CourseLectureNotes.vue';
 import CourseAttachedFiles from '~/components/CourseAttachedFiles.vue';
 import CourseComments from '~/components/CourseComments.vue';
+import PlayIcon from '~/components/icons/PlayIcon.vue';
+import TimeIcon from '~/components/icons/TimeIcon.vue';
+import DropdownIcon from '~/components/icons/DropdownIcon.vue';
 
 const tabs = [
   {
@@ -24,10 +27,42 @@ const tabs = [
   },
 ];
 
+const chapters = [
+  {
+    id: 1,
+    title: 'Chapter 1: Course Overview',
+  },
+  {
+    id: 2,
+    title: 'Chapter 2: Curriculum',
+  },
+  {
+    id: 3,
+    title: 'Chapter 3: Components',
+  },
+];
+
 const activeTab = ref(1);
+
+const openedChapters = ref(new Set([]));
 
 const switchTab = (tabId) => {
   activeTab.value = tabId;
+};
+
+const handleOpenedChapters = (chapterId) => {
+  // create a set add chapterId to it
+  if (!openedChapters.value) {
+    openedChapters.value = new Set([chapterId]);
+  } else {
+    // if chapterId is already in the set, remove it
+    if (openedChapters.value.has(chapterId)) {
+      openedChapters.value.delete(chapterId);
+    } else {
+      // add chapterId to the set
+      openedChapters.value.add(chapterId);
+    }
+  }
 };
 </script>
 
@@ -36,7 +71,7 @@ const switchTab = (tabId) => {
     <div class="w-full md:w-[70%]">
       <div>
         <!-- video -->
-        <div class="rounded-xl bg-yellow-900 w-full pb-[40%]"></div>
+        <div class="rounded-xl bg-yellow-900 w-full pb-[50%]"></div>
 
         <!-- title -->
         <h3 class="mt-3 font-bold text-xl">VUE JS SCRATCH COURSE</h3>
@@ -103,7 +138,90 @@ const switchTab = (tabId) => {
       </div>
     </div>
 
-    <div class="bg-yellow-900 w-full md:w-[30%]">
+    <div class="w-full md:w-[30%]">
+      <div class="relative flex justify-between items-center border-b">
+        <div class="flex-shrink-0 p-1 pb-2 flex justify-center items-center">
+          <p class="font-semibold">Course Contents</p>
+        </div>
+
+        <div class="w-[15%] bg-primary-purple h-[2px] absolute bottom-0 left-0"></div>
+
+        <p class="text-primary-purple text-sm">15% Completed</p>
+      </div>
+
+      <!-- chapters -->
+      <div class="mt-5 flex flex-col items-start rounded-md overflow-hidden">
+        <!-- Chapter 1 -->
+        <div v-for="chapter in chapters" :key="chapter.id" class="w-full">
+          <div class="p-3 flex w-full justify-between items-center cursor-pointer bg-[#f2f4f7]">
+            <div @click="handleOpenedChapters(chapter.id)">
+              <h3 class="font-semibold">{{ chapter.title }}</h3>
+              <div class="flex gap-2 text-[#667085]">
+                <div class="flex items-center">
+                  <PlayIcon class="w-5 h-5" />
+                  <p class="text-sm">12 Videos</p>
+                </div>
+
+                <div class="flex items-center">
+                  <TimeIcon class="w-5 h-5" />
+                  <p class="text-sm">28m</p>
+                </div>
+              </div>
+            </div>
+
+            <DropdownIcon class="w-5 h-5" />
+          </div>
+
+          <!-- subchapters -->
+          <div v-if="openedChapters.has(chapter.id)">
+            <div class="p-3 flex w-full justify-between items-center cursor-pointer bg-[#fcfcfd]">
+              <div>
+                <h4 class="">Installing Vue JS</h4>
+                <div class="flex gap-2 text-[#667085]">
+                  <div class="flex items-center text-[#32d583]">
+                    <PlayIcon class="w-5 h-5" />
+                    <p class="text-sm">12m</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="py-1 px-2 bg-[#32d583] text-sm rounded-md">
+                <p class="text-white">Completed</p>
+              </div>
+            </div>
+
+            <div class="p-3 flex w-full justify-between items-center cursor-pointer bg-[#fcfcfd]">
+              <div>
+                <h4 class="">Understand Vue Components
+                </h4>
+                <div class="flex gap-2 text-[#667085]">
+                  <div class="flex items-center text-primary-purple">
+                    <PlayIcon class="w-5 h-5" />
+                    <p class="text-sm">16m</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="py-1 px-2 bg-primary-purple text-sm rounded-md">
+                <p class="text-white">Playing</p>
+              </div>
+            </div>
+
+            <div class="p-3 flex w-full justify-between items-center cursor-pointer bg-[#fcfcfd]">
+              <div>
+                <h4 class="">Vue Templating</h4>
+                <div class="flex gap-2 text-[#667085]">
+                  <div class="flex items-center text-[#667085]">
+                    <PlayIcon class="w-5 h-5" />
+                    <p class="text-sm">16m</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
 </template>
