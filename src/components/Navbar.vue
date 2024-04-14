@@ -11,7 +11,7 @@ import MagicIcon from "~/components/icons/MagicIcon.vue";
 
     <div class="flex items-center ml-auto gap-4">
       <div>
-        <Badge />
+        <!-- <Badge /> -->
       </div>
       <div class="flex items-center justify-center relative w-10 h-10 rounded-full bg-white cursor-pointer">
         <AlarmIcon class="h-5 w-5" />
