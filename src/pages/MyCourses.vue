@@ -1,5 +1,28 @@
 <script setup>
 import ShareIcon from '~/components/icons/ShareIcon.vue';
+
+const FeaturedCourses = [
+  {
+    id: 1,
+    image: './src/components/images/Mask group (1).png',
+    time: 15,
+    title: 'True love, Good Sex & Freedom from Porn Addiction',
+  },
+
+  {
+    id: 1,
+    image: './src/components/images/Mask group (1).png',
+    time: 26,
+    title: 'True love, Good Sex & Freedom from Porn Addiction',
+  },
+
+  {
+    id: 1,
+    image: './src/components/images/Mask group (1).png',
+    time: 30,
+    title: 'True love, Good Sex & Freedom from Porn Addiction',
+  },
+];
 </script>
 
 <template>
@@ -29,50 +52,16 @@ import ShareIcon from '~/components/icons/ShareIcon.vue';
       <h1 class="font-semibold">My Featured Courses</h1>
     </div>
     <div class="grid grid-cols-[repeat(auto-fill,minmax(320px,1fr))] gap-6">
-      <div class="relative border border-gray-200 rounded-md">
+      <div v-for="course in FeaturedCourses" :key="course.id" class="relative border border-gray-200 rounded-md">
         <div class="absolute left-0 bottom-[30%] p-3 ml-3">
-          <button class="text-sm bg-white backdrop-blur-lg rounded-md p-2">24hrs</button>
+          <button class="text-sm bg-white backdrop-blur-lg rounded-md p-2">{{ course.time }}hrs</button>
         </div>
         <div class="w-full bg-[#f2f4f7] rounded-lg p-3">
           <div>
-            <img class="h-40 w-full object-cover rounded-md" src="../components/images/Mask group (1).png" alt="" />
+            <img class="h-40 w-full object-cover rounded-md" :src="course.image" alt="" />
           </div>
           <div class="flex justify-between items-start gap-20 py-3">
-            <h3 class="font-semibold text-sm">True love, Good Sex & Freedom from Porn Addiction</h3>
-            <div class="flex items-center justify-center rounded-md bg-[#e4e7ec] p-2">
-              <ShareIcon class="w-5" />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="relative border border-gray-200 rounded-md">
-        <div class="absolute left-0 bottom-[30%] p-3 ml-3">
-          <button class="text-sm bg-white backdrop-blur-lg rounded-md p-2">24hrs</button>
-        </div>
-        <div class="w-full bg-[#f2f4f7] rounded-lg p-3">
-          <div>
-            <img class="h-40 w-full object-cover rounded-md" src="../components/images/Mask group (1).png" alt="" />
-          </div>
-          <div class="flex justify-between items-start gap-20 py-3">
-            <h3 class="font-semibold text-sm">True love, Good Sex & Freedom from Porn Addiction</h3>
-            <div class="flex items-center justify-center rounded-md bg-[#e4e7ec] p-2">
-              <ShareIcon class="w-5" />
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="relative border border-gray-200 rounded-md">
-        <div class="absolute left-0 bottom-[30%] p-3 ml-3">
-          <button class="text-sm bg-white backdrop-blur-lg rounded-md p-2">24hrs</button>
-        </div>
-        <div class="w-full bg-[#f2f4f7] rounded-lg p-3">
-          <div>
-            <img class="h-40 w-full object-cover rounded-md" src="../components/images/Mask group (1).png" alt="" />
-          </div>
-          <div class="flex justify-between items-start gap-20 py-3">
-            <h3 class="font-semibold text-sm">True love, Good Sex & Freedom from Porn Addiction</h3>
+            <h3 class="font-semibold text-sm">{{ course.title }}</h3>
             <div class="flex items-center justify-center rounded-md bg-[#e4e7ec] p-2">
               <ShareIcon class="w-5" />
             </div>
