@@ -1,5 +1,6 @@
 <script setup>
 import UserIcon from '~/components/icons/UserIcon.vue';
+import { RouterLink } from 'vue-router';
 </script>
 
 <template>
@@ -7,10 +8,10 @@ import UserIcon from '~/components/icons/UserIcon.vue';
     <div class="text-center py-4">
       <h1 class="font-bold text-lg">My course</h1>
       <div class="flex items-center justify-center gap-6 font-medium cursor-pointer">
-        <p class="border-b-2 border-primary-purple py-2">All Courses</p>
-        <p>Courses</p>
-        <p>Wishlist</p>
-        <p>Completed</p>
+        <RouterLink to="/" active-class="active">All Courses</RouterLink>
+        <RouterLink to="/my-courses">Courses</RouterLink>
+        <RouterLink to="/">Wishlist</RouterLink>
+        <RouterLink to="/">Completed</RouterLink>
       </div>
     </div>
     <div class="py-4">
@@ -165,3 +166,10 @@ import UserIcon from '~/components/icons/UserIcon.vue';
     </div>
   </div>
 </template>
+
+<style scoped>
+.active {
+  border-bottom: 2px solid #623ceb;
+  padding: 4px;
+}
+</style>
