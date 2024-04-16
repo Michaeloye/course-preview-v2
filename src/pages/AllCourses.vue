@@ -54,7 +54,9 @@ const courses = [
     <div class="grid grid-cols-[repeat(auto-fill,minmax(210px,1fr))] gap-5">
       <div v-for="course in courses" :key="course.id" class="relative py-2">
         <div class="absolute right-0 p-2">
-          <div class="w-5 h-5 rounded-full flex items-center justify-center bg-gray-400 backdrop-blur-lg">
+          <div
+            class="w-5 h-5 rounded-full flex items-center justify-center bg-gray-400 backdrop-blur-lg cursor-pointer"
+          >
             <svg width="4" height="12" viewBox="0 0 4 12" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path
                 fill-rule="evenodd"
@@ -66,10 +68,8 @@ const courses = [
             </svg>
           </div>
         </div>
-
         <div class="w-full rounded-lg">
           <img class="w-full object-cover rounded-lg" :src="course.image" alt="" />
-
           <div class="flex flex-col gap-1">
             <h3 class="font-bold">{{ course.title }}</h3>
             <div class="flex items-center gap-2 text-primary-purple text-sm">

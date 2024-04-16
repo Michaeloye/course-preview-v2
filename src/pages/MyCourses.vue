@@ -11,7 +11,7 @@ const FeaturedCourses = [
 
   {
     id: 1,
-    image: './src/components/images/Mask group (1).png',
+    image: './src/components/images/Placeholder 1.png',
     time: 26,
     title: 'True love, Good Sex & Freedom from Porn Addiction',
   },
@@ -63,7 +63,7 @@ const FeaturedCourses = [
           <div class="flex justify-between items-start gap-20 py-3">
             <h3 class="font-semibold text-sm">{{ course.title }}</h3>
             <div class="flex items-center justify-center rounded-md bg-[#e4e7ec] p-2">
-              <ShareIcon class="w-5" />
+              <ShareIcon class="w-5 cursor-pointer" />
             </div>
           </div>
         </div>
